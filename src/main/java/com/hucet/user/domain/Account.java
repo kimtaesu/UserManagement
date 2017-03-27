@@ -1,18 +1,15 @@
 package com.hucet.user.domain;
 
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * Created by taesu on 2017-03-27.
- */
-@Getter
+@Data
 @Entity
-public class User {
+public class Account {
     @Id
     @Getter
     @GeneratedValue
