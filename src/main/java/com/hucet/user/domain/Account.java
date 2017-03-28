@@ -3,6 +3,8 @@ package com.hucet.user.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -23,5 +25,7 @@ public class Account {
 
     @Embedded
     private AccountDetails accountDetails;
-
+    @ManyToMany
+    @JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
+    private Set<Role> roles = new HashSet<>();
 }
