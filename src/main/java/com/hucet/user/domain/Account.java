@@ -24,7 +24,7 @@ public class Account {
     private String password;
 
     @Embedded
-    private AccountDetails accountDetails;
+    private AccountDetails accountDetails = new AccountDetails();
     @ManyToMany
     @JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
     private Set<Role> roles = new HashSet<>();
