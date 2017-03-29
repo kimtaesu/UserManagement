@@ -23,6 +23,7 @@ public class Account {
     @Column(nullable = false)
     private String password;
 
+
     @Embedded
     private AccountDetails accountDetails = new AccountDetails();
     @ManyToMany
