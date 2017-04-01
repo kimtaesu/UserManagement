@@ -5,6 +5,7 @@ import com.hucet.user.service.AccountService;
 import com.hucet.user.domain.Account;
 import com.hucet.user.dto.AccountDto;
 import javassist.NotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpEntity;
@@ -20,6 +21,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/account")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -42,6 +44,7 @@ public class UserController {
 
     @GetMapping("/info/{userEmail:.+}")
     ResponseEntity<Account> getUser(@PathVariable String userEmail) {
+        log.info("getUser");
         if (accountService.getUser(userEmail).isPresent()) {
             return new ResponseEntity<>(accountService.getUser(userEmail).get(), HttpStatus.OK);
         }
