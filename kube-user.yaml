@@ -1,0 +1,17 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: user-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: user-service
+      labels:
+        run: cluster-service-1
+    spec:
+      containers:
+        - name: user-container
+          image: java:8
+          ports:
+            - containerPort: 8090

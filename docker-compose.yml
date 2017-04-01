@@ -1,11 +1,17 @@
 version: '2'
 services:
+  user-service:
+    build: ./
+    depends_on:
+      - mysql
+    environment:
+      - "SPRING_PROFILES_ACTIVE=local"
   mysql:
-        build: ./mysql
-        ports:
-        - 3306:3306
-        environment:
-        - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_USER=test
-        - MYSQL_PASSWORD=test
-        - MYSQL_DATABASE=user_service
+    build: ./mysql
+    ports:
+    - 3306:3306
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_USER=test
+    - MYSQL_PASSWORD=test
+    - MYSQL_DATABASE=user_service

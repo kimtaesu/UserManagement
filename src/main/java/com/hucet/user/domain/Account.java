@@ -20,6 +20,7 @@ public class Account {
     @Column(unique = true)
     private String userEmail;
 
+
     @Column(nullable = false)
     private String password;
 

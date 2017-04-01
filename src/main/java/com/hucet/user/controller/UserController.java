@@ -43,7 +43,7 @@ public class UserController {
     @GetMapping("/info/{userEmail:.+}")
     ResponseEntity<Account> getUser(@PathVariable String userEmail) {
         if (accountService.getUser(userEmail).isPresent()) {
-            return new ResponseEntity<Account>(accountService.getUser(userEmail).get(), HttpStatus.OK);
+            return new ResponseEntity<>(accountService.getUser(userEmail).get(), HttpStatus.OK);
         }
         throw new UserNotFoundException("userEmail : " + userEmail + " 회원님은 존재하지 않습니다.");
     }
